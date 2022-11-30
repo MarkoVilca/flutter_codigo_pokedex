@@ -5,9 +5,11 @@ import 'package:http/http.dart' as http;
 
 class HomePage extends StatelessWidget {
   
-  getDataPokemon(){
+  getDataPokemon() async{
     Uri _uri = Uri.parse("hhtps://raw.githubusercontent.com/Biuni/Pokemon60-Pokedex/master/pokedex.json");
-    http.get(_uri);
+    http.Response response = await http.get(_uri);
+    print(response.statusCode);
+    print(response.body);
   }
 
   @override
